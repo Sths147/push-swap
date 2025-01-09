@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ps_utils_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 15:24:15 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/09 11:20:26 by sithomas         ###   ########.fr       */
+/*   Created: 2025/01/09 16:29:22 by sithomas          #+#    #+#             */
+/*   Updated: 2025/01/09 16:31:13 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ps_utils.h"
 
-typedef struct s_lst_stack
+void	ss(t_lst_stack **a, t_lst_stack **b)
 {
-	int					content;
-	struct s_lst_stack	*next;
-}				t_lst_stack;
+	swap(a);
+	swap(b);
+}
 
-# include "../libft/libft.h"
-# include "parse.h"
-# include "print_list.h"
-# include "stack_lst_utils.h"
-# include "ps_utils.h"
+void	rr(t_lst_stack **a, t_lst_stack **b)
+{
+	rotate(a);
+	rotate(b);
+}
 
-void	exit_error(void);
-void	error_lists(t_lst_stack **a, t_lst_stack **b);
-
-#endif 
+void	rrr(t_lst_stack **a, t_lst_stack **b)
+{
+	rev_rotate(a);
+	rev_rotate(b);
+}

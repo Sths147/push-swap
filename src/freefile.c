@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   freefile.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 15:24:15 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/09 11:20:26 by sithomas         ###   ########.fr       */
+/*   Created: 2025/01/09 11:11:32 by sithomas          #+#    #+#             */
+/*   Updated: 2025/01/09 11:28:37 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-typedef struct s_lst_stack
+void	exit_error(void)
 {
-	int					content;
-	struct s_lst_stack	*next;
-}				t_lst_stack;
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
-# include "../libft/libft.h"
-# include "parse.h"
-# include "print_list.h"
-# include "stack_lst_utils.h"
-# include "ps_utils.h"
-
-void	exit_error(void);
-void	error_lists(t_lst_stack **a, t_lst_stack **b);
-
-#endif 
+void	error_lists(t_lst_stack **a, t_lst_stack **b)
+{
+	ft_stack_clear(a, free);
+	ft_stack_clear(b, free);
+	write(2, "Error\n", 6);
+	exit(1);
+}
