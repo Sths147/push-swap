@@ -6,7 +6,7 @@
 #    By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 16:23:34 by sithomas          #+#    #+#              #
-#    Updated: 2025/01/09 11:51:04 by sithomas         ###   ########.fr        #
+#    Updated: 2025/01/10 15:51:32 by sithomas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g3
 
-INC = -I includes
+INC = -Iincludes
 
 SRCFOLDER = src/
 
@@ -30,6 +30,7 @@ SRC_LIST = print_list.c \
 	push_swap.c \
 	parse.c \
 	freefile.c \
+	radix.c \
 	
 SRC = $(addprefix $(SRCFOLDER), $(SRC_LIST))
 
@@ -49,7 +50,7 @@ $(NAME): $(SRC_OBJS)
 	$(CC) $(CFLAGS) $(SRC_OBJS) $(LIBS) -o $@
 	@echo 'push_swap created'
 
-$(OBJFOLDER)%.o: $(SRCFOLDER)%.c Makefile libft
+$(OBJFOLDER)%.o: $(SRCFOLDER)%.c Makefile includes
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
