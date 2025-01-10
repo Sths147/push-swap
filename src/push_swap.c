@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:24:56 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/09 16:21:07 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:26:39 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	main(int ac, char **av)
 	print_lst_stack(a);
 	write(1, "Stack b:\n", 9);
 	print_lst_stack(b);
-	rev_rotate(a);
-	write(1, "after \n", 7);
+	ft_printf("MAX: %d\n", get_bit_max(a));
+	sort_this(a, b, get_bit_max(a));
 	write(1, "Stack a:\n", 9);
 	print_lst_stack(a);
 	write(1, "Stack b:\n", 9);

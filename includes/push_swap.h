@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:24:15 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/09 11:20:26 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:26:44 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ typedef struct s_lst_stack
 
 void	exit_error(void);
 void	error_lists(t_lst_stack **a, t_lst_stack **b);
+int		get_bit_max(t_lst_stack **lst);
+void	sort_this(t_lst_stack **a, t_lst_stack **b, int max);
 
 #endif 
