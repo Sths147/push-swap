@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:24:15 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/10 18:26:44 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:07:51 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct s_lst_stack
 {
 	int					content;
+	unsigned int		pos;
 	struct s_lst_stack	*next;
 }				t_lst_stack;
 

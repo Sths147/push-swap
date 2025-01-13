@@ -6,13 +6,13 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:26:48 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/08 14:43:05 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:18:42 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_lst_utils.h"
 
-int	ft_stack_size(t_lst_stack *lst)
+unsigned int	ft_stack_size(t_lst_stack *lst)
 {
 	int	i;
 

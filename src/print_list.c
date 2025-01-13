@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:23:01 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/09 11:38:44 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:21:03 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_lst_stack(t_lst_stack **lst)
 	i = 1;
 	while (current)
 	{
-		ft_printf("%d: %i\n", i, current->content);
+		ft_printf("%d: pos = %u, value = %i\n", i, current->pos, current->content);
 		i++;
 		current = current->next;
 	}

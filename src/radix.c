@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:07:44 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/10 18:27:51 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:17:31 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,11 @@ void	sort_this(t_lst_stack **a, t_lst_stack **b, int max)
 	size_t			j;
 	size_t			size;
 	int				tmp;
+	int				ops;
 	
 	i = -1;
 	size = ft_stack_size(*a);
+	ops = 0;
 	while (++i < max)
 	{
 		j = 0;
@@ -60,15 +62,26 @@ void	sort_this(t_lst_stack **a, t_lst_stack **b, int max)
 		{
 			tmp = (*a)->content;
 			if ((tmp >> i) & 1)
-				push(b, a);
-			else
 				rotate(a);
+			else
+				push(b, a);
 			j++;
+			ops++;
 		}
 		while (*b)
 		{
 			push(a, b);
-			// rotate(a);
+			ops++;
 		}
 	}
+	while (ft_stack_last(*a)->content < 0)
+	{	
+		rev_rotate(a);
+		ops++;
+	}
+	// ft_printf("number ops: %d\n", ops);
 }
+
+/*
+Comment classer byte par byte
+*/
