@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_list.h                                        :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 15:54:12 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/07 15:54:15 by sithomas         ###   ########.fr       */
+/*   Created: 2025/01/15 14:55:44 by sithomas          #+#    #+#             */
+/*   Updated: 2025/01/15 14:55:58 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORT_LIST_H
-# define SORT_LIST_H
-
-
-
-#endif
+typedef struct s_lst_stack
+{
+	int					content;
+	unsigned int		pos;
+	struct s_lst_stack	*next;
+}				t_lst_stack;

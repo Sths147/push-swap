@@ -6,7 +6,7 @@
 #    By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 16:23:34 by sithomas          #+#    #+#              #
-#    Updated: 2025/01/10 15:51:32 by sithomas         ###   ########.fr        #
+#    Updated: 2025/01/15 14:46:39 by sithomas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,15 +22,15 @@ SRCFOLDER = src/
 
 OBJFOLDER = objs/
 
-SRC_LIST = print_list.c \
-	ps_utils.c \
+SRC_LIST = ps_utils.c \
 	sort_list.c \
 	stack_lst_utils.c \
 	stack_lst_utils_2.c \
-	push_swap.c \
 	parse.c \
+	parse_2.c \
 	freefile.c \
 	radix.c \
+	main.c \
 	
 SRC = $(addprefix $(SRCFOLDER), $(SRC_LIST))
 

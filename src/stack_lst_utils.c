@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:26:48 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/13 19:18:42 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:51:31 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_lst_stack	*ft_stack_last(t_lst_stack *lst)
 		lst = lst->next;
 	return (lst);
 }
+
 void	ft_stack_clear(t_lst_stack **lst, void (*del)(void *))
 {
 	t_lst_stack	*tmp;
@@ -59,6 +60,7 @@ void	ft_stack_clear(t_lst_stack **lst, void (*del)(void *))
 	}
 	lst = NULL;
 }
+
 void	ft_stack_add_back(t_lst_stack **lst, t_lst_stack *new)
 {
 	t_lst_stack	*last;
@@ -71,5 +73,3 @@ void	ft_stack_add_back(t_lst_stack **lst, t_lst_stack *new)
 	last = ft_stack_last(*lst);
 	last->next = new;
 }
-
-
