@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:43:08 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/15 14:48:27 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:21:12 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@ t_lst_stack	**init_lst_a(char **av, size_t ac)
 	lst_a = malloc(sizeof(t_lst_stack *));
 	if (!lst_a)
 		return (NULL);
-	*lst_a = NULL;
 	if (ac == 2)
 	{
 		if (av[1][0] == '\0')
 			return (free(lst_a), NULL);
 		args = ft_split(av[1], ' ');
 		lst_a = check_and_fill_list(lst_a, args, 0);
-		free(args);
+		free_tab(args);
 	}
 	else
 		check_and_fill_list(lst_a, av, 1);

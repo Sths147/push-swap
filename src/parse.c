@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:53:19 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/15 14:39:36 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:04:58 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ For every argument:
 	and fill the pos
 */
 
+/*
+PROBLEME DE CHECK 
+PROBLEME DE LEAK si liste pas bonne
+Pour demain: 
+différencier check et fill
+*/
+
 t_lst_stack	**check_and_fill_list(t_lst_stack **lst, char **av, size_t index)
 {
 	t_lst_stack	*new;
@@ -35,12 +42,14 @@ t_lst_stack	**check_and_fill_list(t_lst_stack **lst, char **av, size_t index)
 		if (is_not_int(av[index]) || is_duplicate(lst, ft_atoi(av[index])))
 		{
 			ft_stack_clear(lst, free);
+			free(lst);
 			return (NULL);
 		}
 		new = ft_stack_new(ft_atoi(av[index]));
 		if (!new)
 		{
 			ft_stack_clear(lst, free);
+			free(lst);
 			return (NULL);
 		}
 		ft_stack_add_back(lst, new);
@@ -91,10 +100,10 @@ static int	is_duplicate(t_lst_stack **lst, int nbr)
 {
 	t_lst_stack	*tmp;
 
-	if (!lst || !*lst)
+	if (!lst || !*lst || (*lst)->next)
 		return (0);
 	tmp = *lst;
-	while (tmp)
+	while (tmp->next)
 	{
 		if (tmp->content == nbr)
 			return (1);
