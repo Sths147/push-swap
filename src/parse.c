@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:43:08 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/16 13:25:31 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:40:28 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_lst_stack	**init_lst_a(char **av, size_t ac)
 		free_tab(args);
 	}
 	else
-	{	
+	{
 		if (check_args(av, 1))
 			return (free(lst_a), NULL);
 		fill_list(lst_a, av, 1);
@@ -73,6 +73,7 @@ static t_lst_stack	**fill_list(t_lst_stack **lst, char **av, size_t index)
 		fill_pos(lst);
 	return (lst);
 }
+
 /*
 Checks if list is already sorted
 */
@@ -89,6 +90,7 @@ int	check_list(t_lst_stack **a)
 	}
 	return (1);
 }
+
 /*
 Gets the position of an element compared to the whole list[...
 */
@@ -105,6 +107,7 @@ static unsigned int	getpos(int myint, t_lst_stack **lst, unsigned int size)
 	}
 	return (size);
 }
+
 /*
 ...]and fills the list with it
 */

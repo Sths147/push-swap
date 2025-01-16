@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:53:19 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/16 13:19:49 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:39:43 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ For every argument:
 2. Checks if argument already exists in char **
 */
 
-int		check_args(char **av, size_t index)
+int	check_args(char **av, size_t index)
 {
 	int	checker;
-	
+
 	if (index == 0)
 		checker = 0;
 	else
@@ -82,14 +82,14 @@ For every int I have, I check if the same int already exists in the char **
 static int	is_duplicate(char **av, size_t index, int nbr, int checker)
 {
 	size_t	j;
-	
+
 	if (!*av[checker])
 		return (1);
 	j = checker;
 	while (av[j])
 	{
 		if (j == index)
-		{	
+		{
 			j++;
 			continue ;
 		}

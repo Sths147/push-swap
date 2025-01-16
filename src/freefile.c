@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 11:11:32 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/16 11:33:33 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:38:53 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	exit_error(void)
 void	free_lists(t_lst_stack **a, t_lst_stack **b)
 {
 	if (a)
-	{	
+	{
 		ft_stack_clear(a, free);
 		free(a);
 	}

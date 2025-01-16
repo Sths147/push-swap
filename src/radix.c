@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:07:44 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/16 13:32:54 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:39:10 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	sort_this(t_lst_stack **a, t_lst_stack **b, int max)
 			push_a(a, b);
 	}
 }
+
 /*
 If list a is composed of maximum 5 elements, 
 we cuts the list into a list of 3 elements, sort it
@@ -73,6 +74,7 @@ void	short_sort(t_lst_stack **a, t_lst_stack **b)
 		push_a(a, b);
 	}
 }
+
 /*
 List composed of max 3 elements is sorted
 */
@@ -88,6 +90,7 @@ static void	minisort(t_lst_stack **a)
 	if ((*a)->pos > (*a)->next->pos)
 		swap(a);
 }
+
 /*
 if list is 4 elements long:
 1. Gets smallest element
@@ -104,6 +107,7 @@ static void	push_four(t_lst_stack **a, t_lst_stack **b, unsigned int indicator)
 	if ((*a)->next->next->next->pos == indicator)
 		return (rev_rotate(a), push_b(b, a));
 }
+
 /*
 if list is 5 elements long
 1. Gets 2 smallest elements
