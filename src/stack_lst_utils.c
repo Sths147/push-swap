@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:26:48 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/15 15:54:30 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:34:37 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_stack_add_back(t_lst_stack **lst, t_lst_stack *new)
 {
 	t_lst_stack	*last;
 
-	if (*lst == NULL)
+	if (*lst == NULL || lst == NULL)
 	{
 		*lst = new;
 		return ;

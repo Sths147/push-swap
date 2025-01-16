@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:07:44 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/15 15:08:02 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:32:54 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ static void	minisort(t_lst_stack **a);
 static void	push_four(t_lst_stack **a, t_lst_stack **b, unsigned int pos);
 
 /*
-
+If the list is made of more than 5 elements, it:
+considers each pos into binary
+until the max rank is sorted, sorts every elements
+with radix algorithm applied to binary
 */
 
 void	sort_this(t_lst_stack **a, t_lst_stack **b, int max)
@@ -45,7 +48,11 @@ void	sort_this(t_lst_stack **a, t_lst_stack **b, int max)
 			push_a(a, b);
 	}
 }
-
+/*
+If list a is composed of maximum 5 elements, 
+we cuts the list into a list of 3 elements, sort it
+and adds the firsts elements
+*/
 void	short_sort(t_lst_stack **a, t_lst_stack **b)
 {
 	size_t	size;
@@ -66,7 +73,9 @@ void	short_sort(t_lst_stack **a, t_lst_stack **b)
 		push_a(a, b);
 	}
 }
-
+/*
+List composed of max 3 elements is sorted
+*/
 static void	minisort(t_lst_stack **a)
 {
 	if (ft_stack_size(*a) == 2)
@@ -79,7 +88,11 @@ static void	minisort(t_lst_stack **a)
 	if ((*a)->pos > (*a)->next->pos)
 		swap(a);
 }
-
+/*
+if list is 4 elements long:
+1. Gets smallest element
+2. push_b
+*/
 static void	push_four(t_lst_stack **a, t_lst_stack **b, unsigned int indicator)
 {
 	if ((*a)->pos == indicator)
@@ -91,7 +104,11 @@ static void	push_four(t_lst_stack **a, t_lst_stack **b, unsigned int indicator)
 	if ((*a)->next->next->next->pos == indicator)
 		return (rev_rotate(a), push_b(b, a));
 }
-
+/*
+if list is 5 elements long
+1. Gets 2 smallest elements
+2. push b
+*/
 static void	push_five(t_lst_stack **a, t_lst_stack **b)
 {
 	if ((*a)->pos == 0)

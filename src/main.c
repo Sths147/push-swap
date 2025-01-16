@@ -6,16 +6,18 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:24:56 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/15 15:51:42 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:21:59 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 /*
 Program behaviour
-	1. Parsing: initialise a chained list with all **argv elements inside
+	1. Parsing: initialise  chained list with all **argv elements inside
 	and checks if args are in good format, if not, exits
-	2. 
+	2. Checks if list is already sorted
+	3. If not, sorts the list and prints all actions required
+	4. frees everything and returns (0)
 */
 
 int	main(int ac, char **av)
@@ -31,6 +33,7 @@ int	main(int ac, char **av)
 	b = malloc(sizeof(t_lst_stack *));
 	if (!b)
 		error_lists(a, b);
+	*b = NULL;
 	if (check_list(a))
 		return (free_lists(a, b), 0);
 	if (ft_stack_size(*a) < 6)

@@ -5,46 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:53:19 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/15 16:04:58 by sithomas         ###   ########.fr       */
+/*   Created: 2025/01/15 14:43:08 by sithomas          #+#    #+#             */
+/*   Updated: 2025/01/16 13:25:31 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-static int			is_not_int(const char *nptr);
-static int			is_duplicate(t_lst_stack **lst, int nbr);
+static t_lst_stack	**fill_list(t_lst_stack **lst, char **av, size_t index);
 static void			fill_pos(t_lst_stack **lst);
 static unsigned int	getpos(int myint, t_lst_stack **lst, unsigned int size);
 
 /*
-For every argument:
-1. Checks if argument is int
-2. Checks if argument already exists in list
-3. Adds argument back into list
-4. When list is complete, check position of every element
-	and fill the pos
+Initiates the list depending if the list is displayed as
+a single argument or different arguments
 */
 
+t_lst_stack	**init_lst_a(char **av, size_t ac)
+{
+	t_lst_stack	**lst_a;
+	char		**args;
+
+	lst_a = malloc(sizeof(t_lst_stack *));
+	if (!lst_a)
+		return (NULL);
+	*lst_a = NULL;
+	if (ac == 2)
+	{
+		if (av[1][0] == '\0')
+			return (free(lst_a), NULL);
+		args = ft_split(av[1], ' ');
+		if (check_args(args, 0))
+			return (free_tab(args), free(lst_a), NULL);
+		lst_a = fill_list(lst_a, args, 0);
+		free_tab(args);
+	}
+	else
+	{	
+		if (check_args(av, 1))
+			return (free(lst_a), NULL);
+		fill_list(lst_a, av, 1);
+	}
+	return (lst_a);
+}
 /*
-PROBLEME DE CHECK 
-PROBLEME DE LEAK si liste pas bonne
-Pour demain: 
-différencier check et fill
+If the arguments are only ints,
+creates the list with 1 argument per node
 */
 
-t_lst_stack	**check_and_fill_list(t_lst_stack **lst, char **av, size_t index)
+static t_lst_stack	**fill_list(t_lst_stack **lst, char **av, size_t index)
 {
 	t_lst_stack	*new;
 
 	while (av[index])
 	{
-		if (is_not_int(av[index]) || is_duplicate(lst, ft_atoi(av[index])))
-		{
-			ft_stack_clear(lst, free);
-			free(lst);
-			return (NULL);
-		}
 		new = ft_stack_new(ft_atoi(av[index]));
 		if (!new)
 		{
@@ -60,72 +74,24 @@ t_lst_stack	**check_and_fill_list(t_lst_stack **lst, char **av, size_t index)
 	return (lst);
 }
 /*
-Checks if a char is not an int :
-- If first char is different from '-' or digit
-- If chars are different than digits
-- if nbr exceeds int size
+Checks if list is already sorted
 */
-
-static int	is_not_int(const char *nptr)
+int	check_list(t_lst_stack **a)
 {
-	size_t	i;
-	long	result;
-	int		sign;
+	t_lst_stack	*current;
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	if (nptr[i] == '-')
+	current = *a;
+	while (current->next)
 	{
-		sign = -1;
-		i++;
-	}
-	while (nptr[i])
-	{
-		if ((nptr[i] < '0') || (nptr[i] > '9'))
-			return (1);
-		result *= 10;
-		result += nptr[i] - 48;
-		i++;
-	}
-	if ((sign * result) > INT_MAX || (sign * result) < INT_MIN)
-		return (1);
-	return (0);
-}
-/*
-For every int I have, I check if the same int already exists in the list
-*/
-
-static int	is_duplicate(t_lst_stack **lst, int nbr)
-{
-	t_lst_stack	*tmp;
-
-	if (!lst || !*lst || (*lst)->next)
-		return (0);
-	tmp = *lst;
-	while (tmp->next)
-	{
-		if (tmp->content == nbr)
-			return (1);
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
-static void	fill_pos(t_lst_stack **lst)
-{
-	t_lst_stack		*current;
-	unsigned int	size;
-
-	size = ft_stack_size(*lst) - 1;
-	current = *lst;
-	while (current)
-	{
-		current->pos = getpos(current->content, lst, size);
+		if (current->content > current->next->content)
+			return (0);
 		current = current->next;
 	}
+	return (1);
 }
-
+/*
+Gets the position of an element compared to the whole list[...
+*/
 static unsigned int	getpos(int myint, t_lst_stack **lst, unsigned int size)
 {
 	t_lst_stack	*current;
@@ -138,4 +104,20 @@ static unsigned int	getpos(int myint, t_lst_stack **lst, unsigned int size)
 		current = current->next;
 	}
 	return (size);
+}
+/*
+...]and fills the list with it
+*/
+static void	fill_pos(t_lst_stack **lst)
+{
+	t_lst_stack		*current;
+	unsigned int	size;
+
+	size = ft_stack_size(*lst) - 1;
+	current = *lst;
+	while (current)
+	{
+		current->pos = getpos(current->content, lst, size);
+		current = current->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 11:11:32 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/15 15:16:35 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:33:33 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,16 @@ void	exit_error(void)
 
 void	free_lists(t_lst_stack **a, t_lst_stack **b)
 {
-	ft_stack_clear(a, free);
-	ft_stack_clear(b, free);
-	free(a);
-	free(b);
+	if (a)
+	{	
+		ft_stack_clear(a, free);
+		free(a);
+	}
+	if (b)
+	{
+		ft_stack_clear(b, free);
+		free(b);
+	}
 }
 
 void	error_lists(t_lst_stack **a, t_lst_stack **b)

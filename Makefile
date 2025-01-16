@@ -6,7 +6,7 @@
 #    By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 16:23:34 by sithomas          #+#    #+#              #
-#    Updated: 2025/01/15 15:05:57 by sithomas         ###   ########.fr        #
+#    Updated: 2025/01/16 12:53:23 by sithomas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC_LIST = ps_utils.c \
 	stack_lst_utils.c \
 	stack_lst_utils_2.c \
 	parse.c \
-	parse_2.c \
+	check.c \
 	freefile.c \
 	radix.c \
 	main.c \
