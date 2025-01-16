@@ -6,7 +6,7 @@
 #    By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 16:23:34 by sithomas          #+#    #+#              #
-#    Updated: 2025/01/16 12:53:23 by sithomas         ###   ########.fr        #
+#    Updated: 2025/01/16 15:24:14 by sithomas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC_LIST = ps_utils.c \
 	freefile.c \
 	radix.c \
 	main.c \
-	
+
 SRC = $(addprefix $(SRCFOLDER), $(SRC_LIST))
 
 SRC_OBJS = $(patsubst $(SRCFOLDER)%.c, $(OBJFOLDER)%.o, $(SRC))
@@ -49,7 +49,7 @@ $(NAME): $(SRC_OBJS)
 	$(CC) $(CFLAGS) $(SRC_OBJS) $(LIBS) -o $@
 	@echo 'push_swap created'
 
-$(OBJFOLDER)%.o: $(SRCFOLDER)%.c Makefile includes
+$(OBJFOLDER)%.o: $(SRCFOLDER)%.c Makefile includes/*
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
