@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 14:43:08 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/16 13:40:28 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/17 14:00:30 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_lst_stack	**init_lst_a(char **av, size_t ac)
 	{
 		if (check_args(av, 1))
 			return (free(lst_a), NULL);
-		fill_list(lst_a, av, 1);
+		lst_a = fill_list(lst_a, av, 1);
 	}
 	return (lst_a);
 }
