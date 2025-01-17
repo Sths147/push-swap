@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 15:07:44 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/16 13:39:10 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:47:07 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	sort_this(t_lst_stack **a, t_lst_stack **b, int max)
 }
 
 /*
-If list a is composed of maximum 5 elements, 
+If list a is composed of maximum 5 elements,
 we cuts the list into a list of 3 elements, sort it
 and adds the firsts elements
 */
@@ -61,13 +61,13 @@ void	short_sort(t_lst_stack **a, t_lst_stack **b)
 	size = ft_stack_size(*a);
 	if (size <= 3)
 		return (minisort(a));
-	if (size == 4)
+	else if (size == 4)
 		push_four(a, b, 0);
-	if (size == 5)
+	else if (size == 5)
 		push_five(a, b);
 	minisort(a);
 	if (size == 4)
-		return (push_a(a, b));
+		(push_a(a, b));
 	else
 	{
 		push_a(a, b);
@@ -101,11 +101,24 @@ static void	push_four(t_lst_stack **a, t_lst_stack **b, unsigned int indicator)
 	if ((*a)->pos == indicator)
 		return (push_b(b, a));
 	if ((*a)->next->pos == indicator)
-		return (swap(a), push_b(b, a));
+	{
+		swap(a);
+		push_b(b, a);
+		return ;
+	}
 	if ((*a)->next->next->pos == indicator)
-		return (rotate(a), swap(a), push_b(b, a));
+	{
+		rotate(a);
+		swap(a);
+		push_b(b, a);
+		return ;
+	}
 	if ((*a)->next->next->next->pos == indicator)
-		return (rev_rotate(a), push_b(b, a));
+	{
+		rev_rotate(a);
+		push_b(b, a);
+		return ;
+	}
 }
 
 /*

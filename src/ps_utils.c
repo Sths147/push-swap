@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 17:27:51 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/15 14:41:57 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:46:37 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	swap(t_lst_stack **lst)
 {
-	int	tmp;
+	int				tmp;
+	unsigned int	postmp;
 
 	tmp = (*lst)->next->content;
+	postmp = (*lst)->next->pos;
 	(*lst)->next->content = (*lst)->content;
+	(*lst)->next->pos = (*lst)->pos;
 	(*lst)->content = tmp;
+	(*lst)->pos = postmp;
 	ft_printf("sa\n");
 }
 
