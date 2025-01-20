@@ -6,7 +6,7 @@
 #    By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 16:23:34 by sithomas          #+#    #+#              #
-#    Updated: 2025/01/16 15:24:14 by sithomas         ###   ########.fr        #
+#    Updated: 2025/01/20 11:02:16 by sithomas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ $(NAME): $(SRC_OBJS)
 	$(CC) $(CFLAGS) $(SRC_OBJS) $(LIBS) -o $@
 	@echo 'push_swap created'
 
-$(OBJFOLDER)%.o: $(SRCFOLDER)%.c Makefile includes/*
+$(OBJFOLDER)%.o: $(SRCFOLDER)%.c Makefile includes/* $(LIBS)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
