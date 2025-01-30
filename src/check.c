@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:53:19 by sithomas          #+#    #+#             */
-/*   Updated: 2025/01/16 13:39:43 by sithomas         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:56:49 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ static int	is_not_int(const char *nptr)
 		sign = -1;
 		i++;
 	}
+	if ((nptr[i] < '0') || (nptr[i] > '9'))
+		return (1);
 	while (nptr[i])
 	{
 		if ((nptr[i] < '0') || (nptr[i] > '9'))
 			return (1);
-		result *= 10;
-		result += nptr[i] - 48;
-		i++;
+		result = result * 10 + (nptr[i++] - 48);
 	}
 	if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
 		return (1);
